@@ -1,0 +1,19 @@
+<md-card>
+  <h2>Create Your Own Poll!</h2>
+  <form (ngSubmit)="createNewPoll($event)" #newPoll="ngForm">
+    <md-input-container class="full-width">
+      <input md-input placeholder="Title" name="title" maxLength="150" [(ngModel)]="pollTitle" required>
+    </md-input-container>
+    <md-input-container class="full-width">
+      <textarea 
+        md-input 
+        name="options" 
+        placeholder="Poll Options (seperated by line)" 
+        rows="5" 
+        [(ngModel)]="pollOptions"
+        required>
+      </textarea>
+    </md-input-container>
+    <button md-raised-button (click)="createNewPoll($event)" color="primary" [disabled]="!newPoll.form.valid">Create</button>
+  </form>
+</md-card>

@@ -1,0 +1,9 @@
+<md-toolbar color="primary">
+  <a md-button class="home-link" routerLink="/" fxLayout="row" fxLayoutAlign="center">
+    <md-icon>pie_chart</md-icon>
+    <span>freeVoteCamp</span>
+  </a>
+  <span class="fill-space"></span>
+  <a md-button routerLink="login" *ngIf="!isLoggedIn">Login</a>
+  <a md-button (click)="logout()" *ngIf="isLoggedIn">Logout</a>
+</md-toolbar>

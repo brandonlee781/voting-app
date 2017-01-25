@@ -1,0 +1,15 @@
+<div>
+  <div class="hero">
+    <h3>Find the polls you most care about or create your own</h3>
+    <button md-raised-button color="primary" routerLink="new">Create New Poll</button>
+    <button md-raised-button color="accent" routerLink="my-polls" [disabled]="!isLoggedIn">My Polls</button>  
+  </div>
+  <div class="loading" *ngIf="!polls" fxLayout="column" fxLayoutAlign="center">
+    <h4 fxFlexAlign="center">Loading Polls...</h4>
+    <img src="../../assets/pie.gif" alt="Pie Chart Loading Animation" fxFlexAlign="center">
+  </div>
+  <md-card *ngFor="let poll of polls" (click)="goToPollDetails(poll?.$key)">
+    <h4>{{ poll?.title }}</h4>
+    <p>{{ getSum(poll?.datasets[0].data) }} total votes</p>
+  </md-card>
+</div>
